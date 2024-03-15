@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 const Course = ({item,handleSelected}) => {
-    const {photo,name,description,price,credit}=item
+    const {id,photo,name,description,price,credit}=item
     return (
         <div className='mt-10'>
              <div className="card bg-base-100 shadow-xl space-y-5">
