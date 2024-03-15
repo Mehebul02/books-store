@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Cart from '../Cart/Cart';
 const Course = ({item,handleSelected}) => {
     const {photo,name,description,price,credit}=item
     return (
@@ -36,7 +35,7 @@ Credit:{credit}
 };
 
 Course.propTypes = {
- 
+ item:PropTypes.object.isRequired,
     handleSelected:PropTypes.func
 };
 

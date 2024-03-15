@@ -1,26 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddCart from './AddCart';
 
-const Cart = () => {
+
+const Cart = ({select}) => {
     return (
-        <div>
-            <div className="divider"></div>
-            <h1 className='text-2xl text-center font-semibold text-cyan-900'>Course Add:</h1>
-            <div className="divider"></div>
-           <div>
-           <p>Course Name:</p>
-
-           </div>
-            <div className="divider"></div>
-            <p>Total Credit Hour: 7</p>
-            <div className="divider"></div>
-            <p>Total Price :6434 USD</p>
+        <div className='p-2'>
+        <h1 className='text-2xl text-center font-semibold'>Course Add:{select.length}</h1>
+        <div className="divider"></div>
+        <p className='text-xl text-green-800'>Course Name</p>
+        {
+        select.map((cart,idx) => <AddCart key={idx} idx={idx} cart={cart}></AddCart>)
+        }
+        <div className="divider"></div>
+        <p>Total Price:654 USD</p>
+       
         </div>
     );
 };
 
 Cart.propTypes = {
-    
+    select:PropTypes.array.isRequired
 };
 
 export default Cart;
