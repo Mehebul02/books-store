@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-const Course = ({item}) => {
+import Cart from '../Cart/Cart';
+const Course = ({item,handleSelected}) => {
     const {photo,name,description,price,credit}=item
     return (
-        <div>
-             <div className="card w-96 bg-base-100 shadow-xl ">
+        <div className='mt-10'>
+             <div className="card bg-base-100 shadow-xl space-y-5">
   <figure><img src={photo} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
@@ -26,7 +27,7 @@ Credit:{credit}
 
     </div>
     <div className="card-actions justify-center">
-      <button className="btn btn-primary text-xl font-semibold">Selected</button>
+      <button onClick={()=>handleSelected(name)} className="btn btn-primary text-xl font-semibold">Selected</button>
     </div>
   </div>
 </div>
@@ -35,7 +36,8 @@ Credit:{credit}
 };
 
 Course.propTypes = {
-    item:PropTypes.array.isRequired
+ 
+    handleSelected:PropTypes.func
 };
 
 export default Course;

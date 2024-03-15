@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Course from './Course';
 
 
-const Courses = () => {
+const Courses = ({handleSelected}) => {
   const [courses,setCourses] = useState([])
   useEffect(()=>{
     fetch('product.json')
@@ -12,9 +12,9 @@ const Courses = () => {
   },[]);
     return (
       
-          <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
+          <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
             {
-              courses.map((item,index) => <Course key={index} item={item}></Course>)
+              courses.map((item,index) => <Course key={index} item={item} handleSelected={handleSelected}></Course>)
             }
 
           </div>
@@ -23,7 +23,7 @@ const Courses = () => {
 };
 
 Courses.propTypes = {
-  // courses:PropTypes.object.isRequired
+  handleSelected:PropTypes.func
 
 };
 
